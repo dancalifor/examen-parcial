@@ -5,7 +5,7 @@
 package com.mycompany.Infrastructure.DbManagement;
 
 import com.mycompany.Infrastructure.Connections.Connections;
-import com.mycompany.Infrastructure.Models.PersonaModelos;
+import com.mycompany.Infrastructure.Models.PersonaModels;
 import java.sql.SQLException;
 
 /**
@@ -19,7 +19,7 @@ public class Persona {
         connection = new Connections(userBD, passDB, hostDB, portDB, dataBase);
     }
 
-    public String registrarPersona(PersonaModelos persona){
+    public String registrarPersona(PersonaModels persona){
 
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
@@ -41,7 +41,7 @@ public class Persona {
         }
     }
 
-    public String modificarPersona(PersonaModelos persona, int id){
+    public String modificarPersona(PersonaModels persona){
 
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
@@ -53,7 +53,7 @@ public class Persona {
                     "direccion = '" + persona.Direccion + "'," +
                     "email = '" + persona.Email + "'," +
                     "celular = '" + persona.Celular + "'," +
-                    "estado = '" + persona.Estado + "' " + " Where id = " + id);
+                    "estado = '" + persona.Estado + "' " + " Where id = " + persona.Id);
             connection.connectionDB().close();
             return "Los datos de la persona " + persona.Nombre +" "+ persona.Apellido + " fueron modificados correctamente!!!";
         } catch (SQLException e) {
@@ -61,11 +61,10 @@ public class Persona {
         }
     }
 
-    public PersonaModelos consultarPersona(int id){
-        PersonaModelos persona = new PersonaModelos();
+    public PersonaModels consultarPersona(PersonaModels persona){
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from persona where id = " + id));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from persona where id = " + persona.Id));
             if(connection.getResultadoQuery().next()){
                 persona.Nombre = connection.getResultadoQuery().getString("nombre");
                 persona.Apellido = connection.getResultadoQuery().getString("apellido");

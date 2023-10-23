@@ -12,7 +12,7 @@ import com.mycompany.Infrastructure.Models.CiudadModels;
 import com.mycompany.Infrastructure.Models.ClienteModels;
 import com.mycompany.Infrastructure.Models.CuentasModels;
 import com.mycompany.Infrastructure.Models.MovimientosModels;
-import com.mycompany.Infrastructure.Models.PersonaModelos;
+import com.mycompany.Infrastructure.Models.PersonaModels;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import static java.time.temporal.TemporalQueries.localDate;

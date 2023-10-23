@@ -36,7 +36,7 @@ public class Cliente {
         }
     }
 
-    public String modificarCliente(ClienteModels cliente, int id){
+    public String modificarCliente(ClienteModels cliente){
 
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
@@ -44,7 +44,7 @@ public class Cliente {
                     "idpersona = '" + cliente.IdPersona + "'," +
                     "fechaingreso= '" + cliente.FechaIngreso + "'," +
                     "calificacion = '" + cliente.Calificacion + "'," +
-                    "estado= '" + cliente.Estado + "' " + " Where id = " + id);
+                    "estado= '" + cliente.Estado + "' " + " Where id = " + cliente.IdCliente);
             connection.connectionDB().close();
             return "Los datos del cliente fueron modificados correctamente!!!";
         } catch (SQLException e) {
@@ -52,11 +52,10 @@ public class Cliente {
         }
     }
 
-    public ClienteModels consultarCliente(int id){
-        ClienteModels cliente = new ClienteModels();
+    public ClienteModels consultarCliente(ClienteModels cliente){
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cliente where id = " + id));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cliente where id = " + cliente.IdCliente));
             if(connection.getResultadoQuery().next()){
                 cliente.setIdPersona(connection.getResultadoQuery().getInt("idpersona"));
                 cliente.setFechaIngreso(connection.getResultadoQuery().getDate("fechaingreso"));  

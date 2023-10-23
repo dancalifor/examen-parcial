@@ -37,7 +37,7 @@ public class Cuentas {
         }
     }
 
-    public String modificarCuenta(CuentasModels cuentas, int id){
+    public String modificarCuenta(CuentasModels cuentas){
 
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
@@ -47,7 +47,7 @@ public class Cuentas {
                     "fechaalta = '" + cuentas.FechaAlta + "'," +
                     "tipocuenta = '" + cuentas.TipoCuenta + "'," +
                     "estado = '" + cuentas.Estado + "'" +
-                    " Where id = " + id);
+                    " Where id = " + cuentas.Id);
             connection.connectionDB().close();
             return "Los datos de la cuenta Nro.: " + cuentas.NroCuenta + " fue modificado correctamente!!!";
         } catch (SQLException e) {
@@ -55,11 +55,10 @@ public class Cuentas {
         }
     }
 
-    public CuentasModels consultarCuenta(int id){
-        CuentasModels cuentas = new CuentasModels();
+    public CuentasModels consultarCuenta(CuentasModels cuentas){
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cuentas where id = " + id));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cuentas where id = " + cuentas.Id));
             if(connection.getResultadoQuery().next()){
                 cuentas.setIdCliente(connection.getResultadoQuery().getInt("idcliente"));
                 cuentas.setNroCuenta(connection.getResultadoQuery().getString("nrocuenta"));

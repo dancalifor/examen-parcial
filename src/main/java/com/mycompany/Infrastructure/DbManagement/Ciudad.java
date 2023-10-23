@@ -27,36 +27,35 @@ public class Ciudad {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("INSERT INTO ciudad (ciudad,departamento,postal)" +
                     "values('" +
-                    ciudad.Ciudad+ "', '" +
+                    ciudad.nombreCiudad+ "', '" +
                     ciudad.Departamento + "', '" +
                     ciudad.Postal + "')");
             connection.connectionDB().close();
-            return "La ciudad " + ciudad.Ciudad + " fue registrada correctamente!!!";
+            return "La ciudad " + ciudad.nombreCiudad + " fue registrada correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public String modificarCiudad(CiudadModels ciudad, int id){
+    public String modificarCiudad(CiudadModels ciudad){
 
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("UPDATE ciudad SET " +
-                    "ciudad = '" + ciudad.Ciudad + "'," +
+                    "ciudad = '" + ciudad.nombreCiudad + "'," +
                     "departamento = '" + ciudad.Departamento + "'," +
-                    "postal = '" + ciudad.Postal + "' " + " Where id = " + id);
+                    "postal = '" + ciudad.Postal + "' " + " Where id = " + ciudad.Id);
             connection.connectionDB().close();
-            return "Los datos de la ciudad " + ciudad.Ciudad + " fue modificado correctamente!!!";
+            return "Los datos de la ciudad " + ciudad.nombreCiudad + " fue modificado correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public CiudadModels consultarCiudad(int id){
-        CiudadModels ciudad = new CiudadModels();
+    public CiudadModels consultarCiudad(CiudadModels ciudad){
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from ciudad where id = " + id));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from ciudad where id = " + ciudad.Id));
             if(connection.getResultadoQuery().next()){
                 ciudad.setCiudad( connection.getResultadoQuery().getString("ciudad"));
                 ciudad.setDepartamento(connection.getResultadoQuery().getString("departamento"));

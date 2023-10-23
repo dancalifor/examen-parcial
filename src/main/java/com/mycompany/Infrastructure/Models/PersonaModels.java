@@ -8,7 +8,7 @@ package com.mycompany.Infrastructure.Models;
  *
  * @author oem
  */
-public class PersonaModelos {
+public class PersonaModels {
     public int Id;
     public int IdCiudad;
     public String Nombre;

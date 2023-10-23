@@ -10,16 +10,16 @@ package com.mycompany.Infrastructure.Models;
  */
 public class CiudadModels {
     public int Id;
-    public String Ciudad;
+    public String nombreCiudad;
     public String Departamento;
     public int Postal;
     
     public String getCiudad() {
-        return Ciudad;
+        return nombreCiudad;
     }
 
-    public void setCiudad(String Ciudad) {
-        this.Ciudad = Ciudad;
+    public void setCiudad(String nombreCiudad) {
+        this.nombreCiudad = nombreCiudad;
     }
 
     public String getDepartamento() {
