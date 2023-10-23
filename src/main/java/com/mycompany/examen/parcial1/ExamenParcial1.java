@@ -26,11 +26,11 @@ public class ExamenParcial1 {
 
     public static void main(String[] args) {
         //CONEXIONES
-        Ciudad ciudadConn = new Ciudad("prueba","1234","localhost","5432","exapar");
-        Cliente clienteConn = new Cliente("prueba","1234","localhost","5432","exapar");
-        Cuentas cuentaConn = new Cuentas("prueba","1234","localhost","5432","exapar");
-        Movimientos movimientoConn = new Movimientos("prueba","1234","localhost","5432","exapar");
-        Persona personaConn = new Persona("prueba","1234","localhost","5432","exapar");
+        Ciudad ciudadConn = new Ciudad("prueba","1234","localhost","5432","parcialproyecto");
+        Cliente clienteConn = new Cliente("prueba","1234","localhost","5432","parcialproyecto");
+        Cuentas cuentaConn = new Cuentas("prueba","1234","localhost","5432","parcialproyecto");
+        Movimientos movimientoConn = new Movimientos("prueba","1234","localhost","5432","parcialproyecto");
+        Persona personaConn = new Persona("prueba","1234","localhost","5432","parcialproyecto");
         
         LocalDate fechaActual = LocalDate.now();
         Date date = Date.from(fechaActual.atStartOfDay(ZoneId.systemDefault()).toInstant());
