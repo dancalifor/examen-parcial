@@ -14,6 +14,14 @@ public class CiudadModels {
     public String Departamento;
     public int Postal;
     
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+    
     public String getCiudad() {
         return nombreCiudad;
     }

@@ -32,8 +32,8 @@ public class CiudadServices {
     }
 
 
-    public CiudadModels consultarCiudad(CiudadModels ciudad){
-        return ciudadDB.consultarCiudad(ciudad);
+    public CiudadModels consultarCiudad(){
+        return ciudadDB.consultarCiudad();
     }
 
     private boolean validarDatos(CiudadModels ciudad) {

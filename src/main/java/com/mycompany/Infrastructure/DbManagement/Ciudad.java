@@ -52,11 +52,13 @@ public class Ciudad {
         }
     }
 
-    public CiudadModels consultarCiudad(CiudadModels ciudad){
+    public CiudadModels consultarCiudad(){
+        CiudadModels ciudad = new CiudadModels();
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from ciudad where id = " + ciudad.Id));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from ciudad"));
             if(connection.getResultadoQuery().next()){
+                ciudad.setId( connection.getResultadoQuery().getInt("Id"));
                 ciudad.setCiudad( connection.getResultadoQuery().getString("ciudad"));
                 ciudad.setDepartamento(connection.getResultadoQuery().getString("departamento"));
                 ciudad.setPostal(connection.getResultadoQuery().getInt("postal"));
