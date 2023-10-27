@@ -55,10 +55,11 @@ public class Cuentas {
         }
     }
 
-    public CuentasModels consultarCuenta(CuentasModels cuentas){
+    public CuentasModels consultarCuenta(int id){
+        CuentasModels cuentas = new CuentasModels();
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cuentas where id = " + cuentas.Id));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cuentas where id = " + id));
             if(connection.getResultadoQuery().next()){
                 cuentas.setIdCliente(connection.getResultadoQuery().getInt("idcliente"));
                 cuentas.setNroCuenta(connection.getResultadoQuery().getString("nrocuenta"));

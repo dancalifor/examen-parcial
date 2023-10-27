@@ -32,8 +32,8 @@ public class ClienteServices {
     }
 
 
-    public ClienteModels consultarCliente(ClienteModels cliente){
-        return clienteDB.consultarCliente(cliente);
+    public ClienteModels consultarCliente(int id){
+        return clienteDB.consultarCliente(id);
     }
 
     private boolean validarDatos(ClienteModels cliente) {

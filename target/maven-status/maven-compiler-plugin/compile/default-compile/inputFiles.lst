@@ -1,5 +1,5 @@
+/home/oem/NetBeansProjects/examen-parcial/src/main/java/forms/city/ClienteForm.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Services/CiudadServices.java
-/home/oem/NetBeansProjects/examen-parcial/src/main/java/forms/Menu.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Infrastructure/Models/MovimientosModels.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Infrastructure/Models/ClienteModels.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Infrastructure/Models/CiudadModels.java
@@ -14,4 +14,5 @@
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Infrastructure/Connections/Connections.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/examen/parcial1/ExamenParcial1.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Infrastructure/DbManagement/Movimientos.java
+/home/oem/NetBeansProjects/examen-parcial/src/main/java/forms/city/BuscarCiudad.java
 /home/oem/NetBeansProjects/examen-parcial/src/main/java/com/mycompany/Infrastructure/Models/CuentasModels.java

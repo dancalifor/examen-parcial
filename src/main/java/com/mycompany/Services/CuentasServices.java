@@ -32,8 +32,8 @@ public class CuentasServices {
     }
 
 
-    public CuentasModels consultarCuenta(CuentasModels cuentas){
-        return cuentasDB.consultarCuenta(cuentas);
+    public CuentasModels consultarCuenta(int id){
+        return cuentasDB.consultarCuenta(id);
     }
 
     private boolean validarDatos(CuentasModels cuentas) {

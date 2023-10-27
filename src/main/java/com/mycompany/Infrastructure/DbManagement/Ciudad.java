@@ -37,14 +37,14 @@ public class Ciudad {
         }
     }
 
-    public String modificarCiudad(CiudadModels ciudad){
+    public String modificarCiudad(CiudadModels ciudad, int id){
 
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("UPDATE ciudad SET " +
                     "ciudad = '" + ciudad.nombreCiudad + "'," +
                     "departamento = '" + ciudad.Departamento + "'," +
-                    "postal = '" + ciudad.Postal + "' " + " Where id = " + ciudad.Id);
+                    "postal = '" + ciudad.Postal + "' " + " Where id = " + id);
             connection.connectionDB().close();
             return "Los datos de la ciudad " + ciudad.nombreCiudad + " fue modificado correctamente!!!";
         } catch (SQLException e) {
@@ -52,11 +52,11 @@ public class Ciudad {
         }
     }
 
-    public CiudadModels consultarCiudad(){
+    public CiudadModels consultarCiudad(int id){
         CiudadModels ciudad = new CiudadModels();
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from ciudad"));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from ciudad where id="+id));
             if(connection.getResultadoQuery().next()){
                 ciudad.setId( connection.getResultadoQuery().getInt("Id"));
                 ciudad.setCiudad( connection.getResultadoQuery().getString("ciudad"));

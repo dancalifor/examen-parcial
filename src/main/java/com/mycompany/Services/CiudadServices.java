@@ -24,16 +24,16 @@ public class CiudadServices {
         return "Ocurrió algún error, contactese con el Administrador";
     }
 
-    public String modificarCiudad(CiudadModels ciudad){
+    public String modificarCiudad(CiudadModels ciudad, int id){
         if(validarDatos(ciudad)){
-            return ciudadDB.modificarCiudad(ciudad);
+            return ciudadDB.modificarCiudad(ciudad, id);
         }
         return "Ocurrió algún error, contactese con el Administrador";
     }
 
 
-    public CiudadModels consultarCiudad(){
-        return ciudadDB.consultarCiudad();
+    public CiudadModels consultarCiudad(int id){
+        return ciudadDB.consultarCiudad(id);
     }
 
     private boolean validarDatos(CiudadModels ciudad) {

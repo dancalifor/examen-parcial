@@ -52,10 +52,11 @@ public class Cliente {
         }
     }
 
-    public ClienteModels consultarCliente(ClienteModels cliente){
+    public ClienteModels consultarCliente(int id){
+        ClienteModels cliente = new ClienteModels();
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
-            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cliente where id = " + cliente.IdCliente));
+            connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from cliente where id = " + id));
             if(connection.getResultadoQuery().next()){
                 cliente.setIdPersona(connection.getResultadoQuery().getInt("idpersona"));
                 cliente.setFechaIngreso(connection.getResultadoQuery().getDate("fechaingreso"));  
