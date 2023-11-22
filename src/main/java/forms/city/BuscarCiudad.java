@@ -27,9 +27,9 @@ public class BuscarCiudad extends javax.swing.JFrame {
     }
     
     private void cargarDatos(CiudadModels ciudadModel) {
-        txtCiudad.setText(ciudadModel.nombreCiudad);
-        txtDepartamento.setText(ciudadModel.Departamento);
-        txtPostal.setText(String.valueOf(ciudadModel.Postal));
+        txtCiudad.setText(ciudadModel.getCiudad());
+        txtDepartamento.setText(ciudadModel.getDepartamento());
+        txtPostal.setText(String.valueOf(ciudadModel.getPostal()));
     }
     
     private void guardarDatos() {

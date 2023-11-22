@@ -26,11 +26,11 @@ public class CuentasForm extends javax.swing.JFrame {
     }
     
     private void cargarDatos(CuentasModels cuenta) {
-        txtIdCliente.setText(String.valueOf(cuenta.IdCliente));
-        txtCuenta.setText(cuenta.NroCuenta);
-        date.setDate(cuenta.FechaAlta);
-        txtTipoCuenta.setText(cuenta.TipoCuenta);
-        txtEstado.setText(cuenta.Estado);
+        txtIdCliente.setText(String.valueOf(cuenta.getIdCliente()));
+        txtCuenta.setText(cuenta.getNroCuenta());
+        date.setDate(cuenta.getFechaAlta());
+        txtTipoCuenta.setText(cuenta.getTipoCuenta());
+        txtEstado.setText(cuenta.getEstado());
     }
 
     /**

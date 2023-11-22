@@ -25,11 +25,11 @@ public class Cuentas {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("INSERT INTO cuentas (idcliente, nrocuenta, fechaalta, tipocuenta, estado)" +
                     "values('" +
-                    cuentas.IdCliente+ "', '" +
-                    cuentas.NroCuenta + "', '" +
-                    cuentas.FechaAlta + "', '" +
-                    cuentas.TipoCuenta + "', '" +
-                    cuentas.Estado + "')");
+                    cuentas.getIdCliente()+ "', '" +
+                    cuentas.getNroCuenta() + "', '" +
+                    cuentas.getFechaAlta() + "', '" +
+                    cuentas.getTipoCuenta() + "', '" +
+                    cuentas.getEstado() + "')");
             connection.connectionDB().close();
             return "La cuenta Nro: " + cuentas.NroCuenta + " fue registrada correctamente!!!";
         } catch (SQLException e) {
@@ -42,14 +42,14 @@ public class Cuentas {
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("UPDATE cuentas SET " +
-                    "idcliente = '" + cuentas.IdCliente + "'," +
-                    "nrocuenta = '" + cuentas.NroCuenta + "'," +
-                    "fechaalta = '" + cuentas.FechaAlta + "'," +
-                    "tipocuenta = '" + cuentas.TipoCuenta + "'," +
-                    "estado = '" + cuentas.Estado + "'" +
-                    " Where id = " + cuentas.Id);
+                    "idcliente = '" + cuentas.getIdCliente() + "'," +
+                    "nrocuenta = '" + cuentas.getNroCuenta() + "'," +
+                    "fechaalta = '" + cuentas.getFechaAlta() + "'," +
+                    "tipocuenta = '" + cuentas.getTipoCuenta() + "'," +
+                    "estado = '" + cuentas.getEstado() + "'" +
+                    " Where id = " + cuentas.getId());
             connection.connectionDB().close();
-            return "Los datos de la cuenta Nro.: " + cuentas.NroCuenta + " fue modificado correctamente!!!";
+            return "Los datos de la cuenta Nro.: " + cuentas.getNroCuenta() + " fue modificado correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -27,10 +27,10 @@ public class ClienteForm extends javax.swing.JFrame {
     }
     
     private void cargarDatos(ClienteModels cliente) {
-        txtIdPersona.setText(String.valueOf(cliente.IdPersona));
-        txtCalificacion.setText(cliente.Calificacion);
-        date.setDate(cliente.FechaIngreso);
-        txtEstado.setText(cliente.Estado);
+        txtIdPersona.setText(String.valueOf(cliente.getIdPersona()));
+        txtCalificacion.setText(cliente.getCalificacion());
+        date.setDate(cliente.getFechaIngreso());
+        txtEstado.setText(cliente.getEstado());
         
     }
     private void guardarDatos() {

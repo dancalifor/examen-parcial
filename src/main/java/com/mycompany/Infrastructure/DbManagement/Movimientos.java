@@ -25,15 +25,15 @@ public class Movimientos {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("INSERT INTO movimientos (idcuenta, fechamovimiento, tipomovimiento, saldoanterior, saldoactual, montomovimiento, cuentaorigen, cuentadestino, canal)" +
                     "values('" +
-                    movimiento.IdCuenta+ "', '" +
-                    movimiento.FechaMovimiento + "', '" +
-                    movimiento.TipoMovimiento + "', '" +
-                    movimiento.SaldoAnterior + "', '" +
-                    movimiento.SaldoActual+ "', '" +
-                    movimiento.MontoMovimiento + "', '" +
-                    movimiento.CuentaOrigen+ "', '" +
-                    movimiento.CuentaDestino + "', '" +
-                    movimiento.Canal + "')");
+                    movimiento.getIdCuenta()+ "', '" +
+                    movimiento.getFechaMovimiento() + "', '" +
+                    movimiento.getTipoMovimiento() + "', '" +
+                    movimiento.getSaldoAnterior() + "', '" +
+                    movimiento.getSaldoActual()+ "', '" +
+                    movimiento.getMontoMovimiento() + "', '" +
+                    movimiento.getCuentaOrigen()+ "', '" +
+                    movimiento.getCuentaDestino() + "', '" +
+                    movimiento.getCanal() + "')");
             connection.connectionDB().close();
             return "El registro de movimiento fue insertado correctamente!!!";
         } catch (SQLException e) {
@@ -46,15 +46,15 @@ public class Movimientos {
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("UPDATE movimientos SET " +
-                    "idcuenta= '" + movimiento.IdCuenta + "'," +
-                    "fechamovimiento = '" + movimiento.FechaMovimiento + "'," +
-                    "tipomovimiento= '" + movimiento.TipoMovimiento + "'," +
-                    "saldoanterior= '" + movimiento.SaldoAnterior + "'," +
-                    "saldoactual = '" + movimiento.SaldoActual + "'," +
-                    "montomovimiento = '" + movimiento.MontoMovimiento + "'," +
-                    "cuentaorigen = '" + movimiento.CuentaOrigen + "'," +
-                    "cuentadestino= '" + movimiento.CuentaDestino + "'," +
-                    "canal = '" + movimiento.Canal + "' " + " Where id = " + id);
+                    "idcuenta= '" + movimiento.getIdCuenta() + "'," +
+                    "fechamovimiento = '" + movimiento.getFechaMovimiento() + "'," +
+                    "tipomovimiento= '" + movimiento.getTipoMovimiento() + "'," +
+                    "saldoanterior= '" + movimiento.getSaldoAnterior() + "'," +
+                    "saldoactual = '" + movimiento.getSaldoActual() + "'," +
+                    "montomovimiento = '" + movimiento.getMontoMovimiento() + "'," +
+                    "cuentaorigen = '" + movimiento.getCuentaOrigen() + "'," +
+                    "cuentadestino= '" + movimiento.getCuentaDestino() + "'," +
+                    "canal = '" + movimiento.getCanal() + "' " + " Where id = " + id);
             connection.connectionDB().close();
             return "Los datos del movimiento fueron modificados correctamente!!!";
         } catch (SQLException e) {
@@ -68,8 +68,8 @@ public class Movimientos {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             connection.setResultadoQuery(connection.getQuerySQL().executeQuery("Select * from movimiento where id = " + id));
             if(connection.getResultadoQuery().next()){
-                movimiento.IdCuenta = connection.getResultadoQuery().getInt("idcuenta");
-                movimiento.MontoMovimiento = connection.getResultadoQuery().getInt("montomovimiento");
+                movimiento.setIdCuenta(connection.getResultadoQuery().getInt("idcuenta"));
+                movimiento.setMontoMovimiento(connection.getResultadoQuery().getInt("montomovimiento"));
 
 
                 return movimiento;

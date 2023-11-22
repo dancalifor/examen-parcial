@@ -27,11 +27,11 @@ public class Ciudad {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("INSERT INTO ciudad (ciudad,departamento,postal)" +
                     "values('" +
-                    ciudad.nombreCiudad+ "', '" +
-                    ciudad.Departamento + "', '" +
-                    ciudad.Postal + "')");
+                    ciudad.getCiudad()+ "', '" +
+                    ciudad.getDepartamento() + "', '" +
+                    ciudad.getPostal() + "')");
             connection.connectionDB().close();
-            return "La ciudad " + ciudad.nombreCiudad + " fue registrada correctamente!!!";
+            return "La ciudad " + ciudad.getCiudad() + " fue registrada correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -42,11 +42,11 @@ public class Ciudad {
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("UPDATE ciudad SET " +
-                    "ciudad = '" + ciudad.nombreCiudad + "'," +
-                    "departamento = '" + ciudad.Departamento + "'," +
+                    "ciudad = '" + ciudad.getCiudad() + "'," +
+                    "departamento = '" + ciudad.getDepartamento() + "'," +
                     "postal = '" + ciudad.Postal + "' " + " Where id = " + id);
             connection.connectionDB().close();
-            return "Los datos de la ciudad " + ciudad.nombreCiudad + " fue modificado correctamente!!!";
+            return "Los datos de la ciudad " + ciudad.getCiudad() + " fue modificado correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

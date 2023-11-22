@@ -25,10 +25,10 @@ public class Cliente {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("INSERT INTO cliente (idpersona, fechaingreso, calificacion, estado)" +
                     "values('" +
-                    cliente.IdPersona+ "', '" +
-                    cliente.FechaIngreso + "', '" +
-                    cliente.Calificacion + "', '" +
-                    cliente.Estado + "')");
+                    cliente.getIdPersona()+ "', '" +
+                    cliente.getFechaIngreso() + "', '" +
+                    cliente.getCalificacion() + "', '" +
+                    cliente.getEstado() + "')");
             connection.connectionDB().close();
             return "El cliente fue registrado correctamente!!!";
         } catch (SQLException e) {
@@ -41,10 +41,10 @@ public class Cliente {
         try {
             connection.setQuerySQL(connection.connectionDB().createStatement());
             boolean execute = connection.getQuerySQL().execute("UPDATE cliente SET " +
-                    "idpersona = '" + cliente.IdPersona + "'," +
-                    "fechaingreso= '" + cliente.FechaIngreso + "'," +
-                    "calificacion = '" + cliente.Calificacion + "'," +
-                    "estado= '" + cliente.Estado + "' " + " Where id = " + cliente.IdCliente);
+                    "idpersona = '" + cliente.getIdPersona() + "'," +
+                    "fechaingreso= '" + cliente.getFechaIngreso() + "'," +
+                    "calificacion = '" + cliente.getCalificacion() + "'," +
+                    "estado= '" + cliente.getEstado() + "' " + " Where id = " + cliente.getIdPersona());
             connection.connectionDB().close();
             return "Los datos del cliente fueron modificados correctamente!!!";
         } catch (SQLException e) {
